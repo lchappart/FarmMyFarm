@@ -1,5 +1,7 @@
 package Farm;
 
+import java.util.ArrayList;
+
 public class Farm {
     public int money;
     public int level;
@@ -37,5 +39,36 @@ public class Farm {
             return true;
         }
         return false;
+    }
+
+    public ArrayList<Long> plant (String plant, ArrayList<Long> fields) {
+        switch (plant) {
+            case "Plant Wheat":
+                if (wheatSeeds > 5) {
+                    long time = System.currentTimeMillis();
+                    wheatSeeds-=5;
+                    fields.set(0,time);
+                    System.out.println(fields.get(0));
+                    return fields;
+                }
+                break;
+            case "Plant Corn":
+                if (cornSeeds > 5) {
+                    long time = System.currentTimeMillis();
+                    cornSeeds-=5;
+                    fields.set(1,time);
+                    return fields;
+                }
+                break;
+            case "Plant Melon":
+                if (melonSeeds > 5) {
+                    long time = System.currentTimeMillis();
+                    melonSeeds-=5;
+                    fields.set(2,time);
+                    return fields;
+                }
+                break;
+        }
+        return fields;
     }
 }

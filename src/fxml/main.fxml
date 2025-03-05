@@ -19,11 +19,11 @@
                <children>
                   <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Includes/Famer.png" />
+                        <Image url="@../Includes/Farmer.png" />
                      </image>
                   </ImageView>
                   <Separator layoutX="40.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
-                  <Label fx:id="dollars" layoutX="64.0" layoutY="13.0" text="Dollars" />
+                  <Label fx:id="dollars" layoutX="53.0" layoutY="13.0" text="Dollars" />
                   <ImageView fitHeight="16.0" fitWidth="14.0" layoutX="46.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                   <GridPane fx:id="fields_grid" layoutY="30.0" prefHeight="334.0" prefWidth="600.0">
                     <columnConstraints>
@@ -31,11 +31,33 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
+                      <RowConstraints />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                     </children>
                   </GridPane>
+                  <Separator layoutX="101.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Label fx:id="wheatLabel" layoutX="114.0" layoutY="13.0" text="Wheat" />
+                  <Separator layoutX="160.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Label fx:id="cornLabel" layoutX="178.0" layoutY="13.0" text="Corn" />
+                  <Separator layoutX="221.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Separator layoutX="221.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Label fx:id="melonLabel" layoutX="234.0" layoutY="13.0" text="Melon" />
+                  <Separator layoutX="282.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Separator layoutX="282.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Label fx:id="sheepLabel" layoutX="295.0" layoutY="13.0" text="Sheep" />
+                  <Separator layoutX="343.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Separator layoutX="343.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Label fx:id="cowLabel" layoutX="366.0" layoutY="13.0" text="Cow" />
+                  <Separator layoutX="404.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Separator layoutX="404.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Label fx:id="pigLabel" layoutX="431.0" layoutY="13.0" text="Pig" />
+                  <Separator layoutX="465.0" orientation="VERTICAL" prefHeight="38.0" prefWidth="0.0" />
+                  <Label fx:id="levelLabel" layoutX="542.0" layoutY="13.0" text="Level : 1" />
                </children></AnchorPane>
       </content>
     </Tab>
