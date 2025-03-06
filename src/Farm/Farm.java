@@ -1,5 +1,6 @@
 package Farm;
 
+
 import java.util.ArrayList;
 
 public class Farm {
@@ -16,8 +17,11 @@ public class Farm {
     public int sheepCount;
     public int cowCount;
     public int pigCount;
+    public int woolCount;
+    public int milkCount;
+    public int truffleCount;
 
-    public Farm(int money, int level, int fields, int enclosures, int wheatSeeds, int cornSeeds, int melonSeeds, int wheat, int corn, int melon, int sheepCount, int cowCount, int pigCount) {
+    public Farm(int money, int level, int fields, int enclosures, int wheatSeeds, int cornSeeds, int melonSeeds, int wheat, int corn, int melon, int sheepCount, int cowCount, int pigCount, int woolCount, int milkCount, int truffleCount) {
         this.money = money;
         this.level = level;
         this.fields = fields;
@@ -31,6 +35,9 @@ public class Farm {
         this.sheepCount = sheepCount;
         this.cowCount = cowCount;
         this.pigCount = pigCount;
+        this.woolCount = woolCount;
+        this.milkCount = milkCount;
+        this.truffleCount = truffleCount;
     }
 
     public boolean buy (int price) {
@@ -70,5 +77,27 @@ public class Farm {
                 break;
         }
         return fields;
+    }
+
+    public void feedAnimal(int type, ArrayList<Long> fields) {
+        switch (type) {
+            case 1:
+                if (this.sheepCount > 0) {
+                    this.sheepCount--;
+                    fields.set(3, System.currentTimeMillis());
+                }
+                break;
+            case 2:
+                if (this.cowCount > 0) {
+                    this.cowCount--;
+                    fields.set(4, System.currentTimeMillis());
+                }
+                break;
+            case 3:
+                if (this.pigCount > 0) {
+                    this.pigCount--;
+                    fields.set(5, System.currentTimeMillis());
+                }
+        }
     }
 }

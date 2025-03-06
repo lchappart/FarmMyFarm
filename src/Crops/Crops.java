@@ -1,7 +1,7 @@
 package Crops;
 
 public class Crops {
-    int growTime;
-    int quantityToPlant;
-    String path;
+    public int growTime;
+    public int plantResult;
+    public String path;
 }
