@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="shopItemImage" fitHeight="80.0" fitWidth="96.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="shopItemSellPrice" layoutX="7.0" layoutY="106.0" prefHeight="16.0" prefWidth="46.0" text="Label" />
+      <Label fx:id="quantityLabel" layoutX="99.0" layoutY="42.0" text="Label" />
+      <Button fx:id="sellButton" layoutX="13.0" layoutY="81.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
+      <Button fx:id="buyButton" layoutX="114.0" layoutY="79.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
+      <Label fx:id="shopItemBuyPrice" layoutX="106.0" layoutY="107.0" prefHeight="16.0" prefWidth="46.0" text="Label" />
+      <Label fx:id="shopItemNameLabel" layoutX="100.0" layoutY="10.0" text="Label" />
+   </children>
+</Pane>

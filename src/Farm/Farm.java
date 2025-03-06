@@ -81,21 +81,24 @@ public class Farm {
 
     public void feedAnimal(int type, ArrayList<Long> fields) {
         switch (type) {
-            case 1:
-                if (this.sheepCount > 0) {
-                    this.sheepCount--;
+            case 0:
+                if (this.wheat > 3) {
+                    this.wheat-=3;
+                    System.out.println("Animal Nourrit");
                     fields.set(3, System.currentTimeMillis());
                 }
                 break;
-            case 2:
-                if (this.cowCount > 0) {
-                    this.cowCount--;
+            case 1:
+                if (this.corn > 3) {
+                    this.corn-=3;
+                    System.out.println("Animal Nourrit");
                     fields.set(4, System.currentTimeMillis());
                 }
                 break;
-            case 3:
-                if (this.pigCount > 0) {
-                    this.pigCount--;
+            case 2:
+                if (this.pigCount > 3) {
+                    this.pigCount-=3;
+                    System.out.println("Animal Nourrit");
                     fields.set(5, System.currentTimeMillis());
                 }
         }

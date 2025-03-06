@@ -6,6 +6,7 @@ import Crops.Corn;
 import Crops.Crops;
 import Crops.Melon;
 import Crops.Wheat;
+import Farm.Shop;
 import Databases.FarmDatabase;
 import Farm.Farm;
 import javafx.application.Application;
@@ -18,9 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -48,6 +47,8 @@ public class Main extends Application {
     private Button addFieldButton;
     @FXML
     private Button plantButton;
+    @FXML
+    private GridPane shopGrid;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -56,8 +57,10 @@ public class Main extends Application {
         Main controller = fxmlLoader.getController();
 
         Scene scene = new Scene(root, 600, 400);
+        Shop shop = new Shop();
         FarmDatabase db = new FarmDatabase();
         Farm farm = db.loadFarm();
+        shop.initializeShop(controller.shopGrid, farm);
         ArrayList<Long> fields = db.loadFields();
         ArrayList<Crops> crops = new ArrayList<>();
         crops.add(new Wheat());
@@ -77,6 +80,7 @@ public class Main extends Application {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
         Runnable task = () -> {
+            System.out.println(System.currentTimeMillis() - fields.get(0) % 2000 < 1000);
             for(int i = 0; i <= 2; i++) {
                 for (int j = 0; j <= 1; j++) {
                     switch(j) {
@@ -99,7 +103,6 @@ public class Main extends Application {
                                         break;
                                 }
                                 fields.set(i, 0L);
-
                             }
                             break;
                         case 1:
@@ -122,7 +125,7 @@ public class Main extends Application {
                                             break;
                                     }
                                     fields.set(i + 3, 0L);
-                                } else if (animals.get(i).age > 180000 && fields.get(i + 3) % 180000 < 0) {
+                                } else if ((time2 - fields.get(i + 3)) % 180000 < 1000) {
                                     switch (i) {
                                         case 0:
                                             System.out.println("Laine Gagnée");
@@ -130,9 +133,11 @@ public class Main extends Application {
                                             break;
                                         case 1:
                                             System.out.println("Lait gagné");
+                                            farm.milkCount++;
                                             break;
                                         case 2:
                                             System.out.println("Truffe Gagnée");
+                                            farm.truffleCount++;
                                             break;
                                     }
                                 }
@@ -224,8 +229,10 @@ public class Main extends Application {
                             Parent fieldRoot = fxmlLoader2.load();
                             Button plantButton = (Button) fieldRoot.lookup("#plantButton");
                             if (plantButton != null) {
+                                int finalI = i;
                                 plantButton.setOnMouseClicked(event -> {
-//                                    farm.feedAnimal(i);
+                                    System.out.println("feed animal");
+                                    farm.feedAnimal(finalI, fields);
                                 });
                             }
                             controller.fields_grid.add(fieldRoot, 1, i);
